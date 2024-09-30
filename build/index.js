@@ -15,7 +15,7 @@ app.use((0, cors_1.default)({
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
 }));
-app.use(express_1.default.static(path_1.default.join(__dirname, 'build', 'dist')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '..', 'dist')));
 app.get('/api/ping', (_req, res) => {
     console.log('someone pinged here');
     res.send('pong');

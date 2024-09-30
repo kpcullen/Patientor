@@ -13,7 +13,7 @@ app.use(
     allowedHeaders: 'Content-Type, Authorization',
   })
 )
-app.use(express.static(path.join(__dirname, 'build', 'dist')))
+app.use(express.static(path.join(__dirname, '..', 'dist')))
 
 app.get('/api/ping', (_req, res) => {
   console.log('someone pinged here')
