@@ -1,9 +1,10 @@
-import axios from 'axios';
-import { apiBaseUrl } from '../constants';
+import axios from 'axios'
+
+const apiBaseUrl = '/api/diagnoses'
 
 const getAll = async () => {
-  const { data } = await axios.get(`${apiBaseUrl}/diagnoses`);
-  return data;
-};
+  const { data } = await axios.get(`${apiBaseUrl}`)
+  return data
+}
 
-export default { getAll };
+export default { getAll }
