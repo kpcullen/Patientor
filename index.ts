@@ -1,4 +1,5 @@
 import express from 'express'
+import path from 'path'
 import cors from 'cors'
 import diagnosisRouter from './src/routes/diagnoses'
 import patientRouter from './src/routes/patients'
@@ -12,7 +13,7 @@ app.use(
     allowedHeaders: 'Content-Type, Authorization',
   })
 )
-app.use(express.static('dist'))
+app.use(express.static(path.join(__dirname, 'build', 'dist')))
 
 app.get('/api/ping', (_req, res) => {
   console.log('someone pinged here')

@@ -1,31 +1,28 @@
-'use strict'
-var __importDefault =
-  (this && this.__importDefault) ||
-  function (mod) {
-    return mod && mod.__esModule ? mod : { default: mod }
-  }
-Object.defineProperty(exports, '__esModule', { value: true })
-const express_1 = __importDefault(require('express'))
-const cors_1 = __importDefault(require('cors'))
-const diagnoses_1 = __importDefault(require('./src/routes/diagnoses'))
-const patients_1 = __importDefault(require('./src/routes/patients'))
-const app = (0, express_1.default)()
-app.use(express_1.default.json())
-app.use(
-  (0, cors_1.default)({
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const path_1 = __importDefault(require("path"));
+const cors_1 = __importDefault(require("cors"));
+const diagnoses_1 = __importDefault(require("./src/routes/diagnoses"));
+const patients_1 = __importDefault(require("./src/routes/patients"));
+const app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.use((0, cors_1.default)({
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Authorization',
-  })
-)
-app.use(express_1.static(path.join(__dirname, 'build', 'dist')))
+}));
+app.use(express_1.default.static(path_1.default.join(__dirname, 'build', 'dist')));
 app.get('/api/ping', (_req, res) => {
-  console.log('someone pinged here')
-  res.send('pong')
-})
-app.use('/api/diagnoses', diagnoses_1.default)
-app.use('/api/patients', patients_1.default)
-const PORT = 3001
+    console.log('someone pinged here');
+    res.send('pong');
+});
+app.use('/api/diagnoses', diagnoses_1.default);
+app.use('/api/patients', patients_1.default);
+const PORT = 3001;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+    console.log(`Server running on port ${PORT}`);
+});
