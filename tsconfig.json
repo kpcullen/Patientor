@@ -106,7 +106,8 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "**/*.ts", // Include all TypeScript files in the root and its subdirectories
+    "**/*.ts",
+    "*.ts", // Include all TypeScript files in the root and its subdirectories
     "!patientor-frontend/**/*.ts" // Exclude all TypeScript files in the patientor-frontend subdirectory
   ],
   "exclude": [
